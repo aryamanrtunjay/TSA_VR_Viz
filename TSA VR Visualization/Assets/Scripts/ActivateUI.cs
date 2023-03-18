@@ -13,11 +13,7 @@ public class ActivateUI : MonoBehaviour
     private int prevCollisions = 0;
     private int CollisionsWithCube = 0;
     private bool displayUI = false; 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
 
     // Update is called once per frame
     void Update()
