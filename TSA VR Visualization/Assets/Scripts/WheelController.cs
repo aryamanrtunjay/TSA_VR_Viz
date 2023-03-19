@@ -22,7 +22,7 @@ public class WheelController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float raw_rotation = turnObj.transform.localRotation.x;
+        float raw_rotation = turnObj.transform.localRotation.y;
         float rotation = ExtensionMethods.Map(raw_rotation, -0.27f, 0.27f, -15, 15);
 
         if (rotation < -15)
