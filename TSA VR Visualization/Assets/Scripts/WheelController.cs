@@ -33,7 +33,6 @@ public class WheelController : MonoBehaviour
         {
             rotation = 15;
         }
-        Debug.Log(rotation);
         currentAcceleration = acceleration * Input.GetAxis("Vertical");
 
         if (Input.GetKey(KeyCode.Space))
