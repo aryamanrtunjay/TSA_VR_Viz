@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip house2;
     public AudioClip house3;
     public AudioClip house4;
-    float seconds = 34.0f;
+    float seconds = 0.0f;
     float speed = 2;
     [SerializeField] GameObject car;
     // Start is called before the first frame update
@@ -103,14 +104,20 @@ public class PlayerMovement : MonoBehaviour
         }
         else if(seconds < 36)
         {
-            transform.position = new Vector3(622.926f, 0.13f, 593.026f);
+            transform.position = new Vector3(622.926f, 0.18f, 593.026f);
             rotateToY(1.2f, 0);
         }
         else if(seconds < 45)
         {
-            rotateToY(1.2f, 0);
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(622.954f, 0.336f, 858.599f), step * 10);
-            car.transform.position = Vector3.MoveTowards(car.transform.position, new Vector3(623.49f, 0.09f, 858.466f), step * 10);
+            rotateToY(0.1f, -1);
+            Quaternion rotation = Quaternion.Euler(0, -1, 0);
+            car.transform.rotation = Quaternion.Slerp(car.transform.rotation, rotation, Time.deltaTime * 0.1f);
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(622.954f, 0.18f, 858.599f), step * 18);
+            car.transform.position = Vector3.MoveTowards(car.transform.position, new Vector3(623.49f, 0.09f, 858.466f), step * 18);
+        }
+        else
+        {
+            SceneManager.LoadScene("Car");
         }
     }
 
